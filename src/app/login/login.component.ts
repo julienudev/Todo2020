@@ -1,12 +1,11 @@
 import { AuthService } from "./../services/auth.service";
-import { FormGroup, FormControl, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import {
   HttpHeaders,
   HttpClient,
   HttpErrorResponse
 } from "@angular/common/http";
-import { User } from "../models/User";
 
 @Component({
   selector: "app-login",
@@ -48,6 +47,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(httpOptions);
   }
+
   submit() {
     // let login = this.f.login.value;
     // let password = this.f.login.value;
