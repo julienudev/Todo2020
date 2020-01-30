@@ -1,0 +1,10 @@
+<p>item works!</p>
+<div class="todo-item">
+  <input class="todo-checkbox" type="checkbox" (click)="completeItem()" />
+  <span class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">{{
+    todoItem.name
+  }}</span>
+  <button class="btn btn-remove" (click)="removeItem()">
+    remove
+  </button>
+</div>

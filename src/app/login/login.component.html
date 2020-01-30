@@ -18,9 +18,17 @@
 
 <div class="row">
   <div class="m-t-1">
-    <!-- <button type="button" class="btn btn-danger">With Headers</button> -->
+    <button type="button" class="btn btn-danger" (click)="getList()">
+      getList
+    </button>
   </div>
 </div>
+
+<ul>
+  <li *ngFor="let todo of todoList">
+    <app-item [todoItem]="todo"></app-item>
+  </li>
+</ul>
 
 <router-outlet></router-outlet>
 

@@ -5,20 +5,18 @@
 
 // }
 
-export interface Data {
+export class Data {
   utilisateur: string;
   password: string;
   todoListes: {
-    List: List[];
+    Liste: Liste[];
   };
 }
 
-export interface List {
-  //id: number;
+export class Liste {
   name: string;
-  TodoItem: string[];
+  TodoItems: string[];
 }
-
-export interface TodoItem {
-  task: string;
+export class TodoItems {
+  oneItem: string;
 }

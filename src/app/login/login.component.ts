@@ -1,3 +1,5 @@
+import { Data } from "./../models/Data";
+import { Observable } from "rxjs";
 import { AuthService } from "./../services/auth.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
@@ -6,6 +8,7 @@ import {
   HttpClient,
   HttpErrorResponse
 } from "@angular/common/http";
+import { TodoItems } from "../models/Data";
 
 @Component({
   selector: "app-login",
@@ -19,19 +22,24 @@ export class LoginComponent implements OnInit {
   //public password: string;
   objet: any;
   //tab: any;
+  Data: any = [];
+
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {}
 
-  //user = new User();
+  TodoItem: TodoItems = null;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       login: [""],
       password: [""]
     });
+
+    // this.TodoItem = this.authService.getTodoList();
+    // console.log(this.TodoItem);
   }
   get f() {
     return this.registerForm.controls;
@@ -46,39 +54,49 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.login(httpOptions);
+    //this.authService.getFromServer(httpOptions);
   }
+  todoList = [{}];
 
-  submit() {
-    // let login = this.f.login.value;
-    // let password = this.f.login.value;
-
-    const url = "http://92.222.69.104:80/todo/listes/";
-    // const body = JSON.stringify({username: username,
-    //                              password: password});
-    const httpOptions = {
-      headers: new HttpHeaders({
-        login: this.f.login.value,
-        password: this.f.login.value
-      })
-    };
-    //console.log(Headers);
-
-    this.http.get(url, httpOptions).subscribe(
-      data => {
-        //console.log(data);
-        this.objet = data;
-        console.log(this.objet);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
-        } else {
-          console.log("Server-side error occured.");
-        }
-      }
-    );
+  getList() {
+    this.todoList = this.authService.getListService();
+    console.log(this.todoList);
   }
 }
+
+// submit() {
+//   // let login = this.f.login.value;
+//   // let password = this.f.login.value;
+
+//   const url = "http://92.222.69.104:80/todo/listes/";
+//   // const body = JSON.stringify({username: username,
+//   //                              password: password});
+//   const httpOptions = {
+//     headers: new HttpHeaders({
+//       login: this.f.login.value,
+//       password: this.f.login.value
+//     })
+//   };
+//   //console.log(Headers);
+
+//   this.http.get(url, httpOptions).subscribe(
+//     data => {
+//       this.Data = data;
+
+//       //console.log(data);
+//       this.objet = data;
+//       console.log(this.objet);
+//     },
+//     (err: HttpErrorResponse) => {
+//       if (err.error instanceof Error) {
+//         console.log("Client-side error occured.");
+//       } else {
+//         console.log("Server-side error occured.");
+//       }
+//     }
+//   );
+// }
+//}
 
 // ngOnInit() {
 //   this.registerForm = this.formBuilder.group({

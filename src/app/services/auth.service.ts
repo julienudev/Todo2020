@@ -1,40 +1,64 @@
-import { List, TodoItem, Data } from "./../models/Data";
+import { Liste, TodoItems, Data } from "./../models/Data";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  public username: string;
-  public password: string;
+  // public username: string;
+  // public password: string;
 
-  data: Data[];
-  list: List[];
-  private todoList: TodoItem[] = [
-    { task: "install NodeJS" },
-    { task: "install Angular CLI" }
-  ];
+  //data: Data[];
+  //data: any = null;
+
+  //listItem: TodoItem[];
+  // private listItem: TodoItems[] = [
+  //   { oneItem: "install NodeJS" },
+  //   { oneItem: "install Angular CLI" }
+  // ];
+  // todoItem: TodoItems;
   constructor(private http: HttpClient) {}
-  //objet: Data;
+
+  // objet: Liste;
 
   url: string = "http://92.222.69.104:80/todo/listes/";
-  //objet: any = {};
-  //data: Data;
+  // data: Data[];
+  //test: List;
 
-  getTodoList() {
-    return this.todoList;
-  }
+  // list: Liste[];
+
+  // public Data = [];
+
+  // getFromServer(httpOptions) {
+  //   this.http
+  //     .get<Data[]>("http://92.222.69.104:80/todo/listes/", httpOptions)
+  //     .subscribe(
+  //       response => {
+  //         this.data = response;
+  //         console.log(response);
+  //       },
+  //       error => {
+  //         console.log("Erreur ! : " + error);
+  //       }
+  //     );
+  // }
+
+  objet: any = [{}];
+  //public todoList = [{}];
 
   login(httpOptions) {
     let url: string = "http://92.222.69.104:80/todo/listes/";
-
-    this.http.get<Data>(url, httpOptions).subscribe(
+    return this.http.get<any>(url, httpOptions).subscribe(
       data => {
-        //console.log(data);
-        //this.objet = data;
         console.log(data);
-        //bookList = bookList;
+        let tableauListes = data["todoListes"];
+        //this.list = tableauListes;
+        console.log(tableauListes);
+        // let liste1 = tableauListes[0];
+        // console.log(liste1);
+        this.objet = tableauListes;
+        console.log(this.objet);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -44,6 +68,9 @@ export class AuthService {
         }
       }
     );
-    //console.log(this.objet);
+  }
+
+  getListService() {
+    return this.objet;
   }
 }
