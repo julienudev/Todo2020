@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 export class ItemComponent implements OnInit {
   @Input()
   todoItem: any;
-  isComplete: boolean = false;
+  //isComplete: boolean = false;
 
   @Output() remove: EventEmitter<any> = new EventEmitter();
 
@@ -20,7 +20,7 @@ export class ItemComponent implements OnInit {
     this.remove.emit(this.todoItem);
   }
 
-  completeItem() {
-    this.isComplete = !this.isComplete;
-  }
+  // completeItem() {
+  //   this.isComplete = !this.isComplete;
+  // }
 }

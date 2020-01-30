@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         login: this.f.login.value,
-        password: this.f.login.value
+        password: this.f.password.value
       })
     };
 
