@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   //Data: any = [];
   //TodoItem: TodoItems = null;
   todoList = [{}];
+  isConnected = false;
 
   //todoList: Data[];
 
@@ -56,14 +57,15 @@ export class LoginComponent implements OnInit {
         password: this.f.password.value
       })
     };
-    this.authService.searchCountryByName(httpOptions).subscribe(data => {
+    this.authService.getFromServer(httpOptions).subscribe(data => {
       this.todoList = data;
+      this.isConnected = true;
       console.log(this.todoList);
     });
   }
 
-  getList() {
-    this.todoList = this.authService.getListService2();
-    console.log(this.todoList);
-  }
+  // getList() {
+  //   this.todoList = this.authService.getListService2();
+  //   console.log(this.todoList);
+  // }
 }

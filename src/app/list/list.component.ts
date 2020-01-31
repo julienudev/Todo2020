@@ -18,8 +18,11 @@ export class ListComponent implements OnInit {
 
   getList() {
     this.todoList = this.authService.getListService2();
-    //console.log(this.todoList);
+    console.log(this.todoList);
   }
+  // getFromServer(){
+
+  // }
   removeItem() {
     this.remove.emit(this.todoList);
   }

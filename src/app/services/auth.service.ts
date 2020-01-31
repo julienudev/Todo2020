@@ -35,7 +35,7 @@ export class AuthService {
   //   return this.objet;
   // }
 
-  searchCountryByName(httpOptions): Observable<any> {
+  getFromServer(httpOptions): Observable<any> {
     let url: string = "http://92.222.69.104:80/todo/listes/";
 
     return this.http.get(url, httpOptions);

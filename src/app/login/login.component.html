@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isConnected">
   <form [formGroup]="registerForm" (ngSubmit)="connect2()">
     <div class="row">
       <label>
@@ -15,10 +15,9 @@
     <button class="btn btn-sucess" type="submit">connect</button>
   </form>
 </div>
-
-<app-list></app-list>
-
-
+<div *ngIf="isConnected">
+  <app-list></app-list>
+</div>
 
 <router-outlet></router-outlet>
 
