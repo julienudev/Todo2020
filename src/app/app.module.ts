@@ -7,9 +7,8 @@ import { AppComponent } from "./app.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { HttpClientModule } from "@angular/common/http";
-import { TodoListService } from "./services/todo-list.service";
-import { ItemComponent } from './item/item.component';
-import { ListComponent } from './list/list.component';
+import { ItemComponent } from "./item/item.component";
+import { ListComponent } from "./list/list.component";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, ItemComponent, ListComponent],
@@ -20,7 +19,7 @@ import { ListComponent } from './list/list.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, TodoListService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

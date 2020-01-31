@@ -1,76 +1,47 @@
 import { Liste, TodoItems, Data } from "./../models/Data";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { from, Observable, throwError } from "rxjs";
+import { map } from "rxjs/operators";
+import { Country } from "../models/Country";
+
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  // public username: string;
-  // public password: string;
+  url: string = "http://92.222.69.104:80/todo/listes/";
+  objet: Liste[];
 
-  //data: Data[];
-  //data: any = null;
-
-  //listItem: TodoItem[];
-  // private listItem: TodoItems[] = [
-  //   { oneItem: "install NodeJS" },
-  //   { oneItem: "install Angular CLI" }
-  // ];
-  // todoItem: TodoItems;
   constructor(private http: HttpClient) {}
 
-  // objet: Liste;
-
-  url: string = "http://92.222.69.104:80/todo/listes/";
-  // data: Data[];
-  //test: List;
-
-  // list: Liste[];
-
-  // public Data = [];
-
-  // getFromServer(httpOptions) {
-  //   this.http
-  //     .get<Data[]>("http://92.222.69.104:80/todo/listes/", httpOptions)
-  //     .subscribe(
-  //       response => {
-  //         this.data = response;
-  //         console.log(response);
-  //       },
-  //       error => {
-  //         console.log("Erreur ! : " + error);
+  // login(httpOptions) {
+  //   let url: string = "http://92.222.69.104:80/todo/listes/";
+  //   return this.http.get<Liste[]>(url, httpOptions).subscribe(
+  //     data => {
+  //       console.log(data);
+  //       this.objet = data["todoListes"];
+  //       console.log(this.objet);
+  //     },
+  //     (err: HttpErrorResponse) => {
+  //       if (err.error instanceof Error) {
+  //         console.log("Client-side error .");
+  //       } else {
+  //         console.log("Server-side error .");
   //       }
-  //     );
+  //     }
+  //   );
+  // }
+  // getListService() {
+  //   return this.objet;
   // }
 
-  objet: any = [{}];
-  //public todoList = [{}];
-
-  login(httpOptions) {
+  searchCountryByName(httpOptions): Observable<any> {
     let url: string = "http://92.222.69.104:80/todo/listes/";
-    return this.http.get<any>(url, httpOptions).subscribe(
-      data => {
-        console.log(data);
-        let tableauListes = data["todoListes"];
-        //this.list = tableauListes;
-        console.log(tableauListes);
-        // let liste1 = tableauListes[0];
-        // console.log(liste1);
-        this.objet = tableauListes;
-        console.log(this.objet);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
-        } else {
-          console.log("Server-side error occured.");
-        }
-      }
-    );
+
+    return this.http.get(url, httpOptions);
   }
 
-  getListService() {
+  getListService2() {
     return this.objet;
   }
 }
