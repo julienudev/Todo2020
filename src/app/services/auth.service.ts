@@ -10,7 +10,7 @@ import { Country } from "../models/Country";
 })
 export class AuthService {
   url: string = "http://92.222.69.104:80/todo/listes/";
-  objet: Liste[];
+  objet: any = [{}];
 
   constructor(private http: HttpClient) {}
 
@@ -38,7 +38,14 @@ export class AuthService {
   getFromServer(httpOptions): Observable<any> {
     let url: string = "http://92.222.69.104:80/todo/listes/";
 
-    return this.http.get(url, httpOptions);
+    return this.http.get(url, httpOptions).pipe(
+      map(data => {
+        console.log(data);
+        let tableauListes = data["todoListes"];
+        this.objet = tableauListes;
+        console.log(this.objet);
+      })
+    );
   }
 
   getListService2() {

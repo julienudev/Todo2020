@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
   TodoItem: TodoItems = null;
 
   getList() {
-    this.todoList = this.authService.getFromServer();
+    this.todoList = this.authService.getListService2();
     console.log(this.todoList);
   }
   // getFromServer(){
