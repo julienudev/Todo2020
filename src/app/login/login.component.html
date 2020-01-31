@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="registerForm" (ngSubmit)="toService()">
+  <form [formGroup]="registerForm" (ngSubmit)="connect()">
     <div class="row">
       <label>
         Login :
@@ -16,19 +16,9 @@
   </form>
 </div>
 
-<div class="row">
-  <div class="m-t-1">
-    <button type="button" class="btn btn-danger" (click)="getList()">
-      getList
-    </button>
-  </div>
-</div>
+<app-list></app-list>
 
-<ul>
-  <li *ngFor="let todo of todoList">
-    <app-item [todoItem]="todo"></app-item>
-  </li>
-</ul>
+
 
 <router-outlet></router-outlet>
 

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  toService() {
+  connect() {
     const httpOptions = {
       headers: new HttpHeaders({
         login: this.f.login.value,

@@ -9,9 +9,10 @@ import { LoginComponent } from "./login/login.component";
 import { HttpClientModule } from "@angular/common/http";
 import { TodoListService } from "./services/todo-list.service";
 import { ItemComponent } from './item/item.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ItemComponent],
+  declarations: [AppComponent, LoginComponent, ItemComponent, ListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
