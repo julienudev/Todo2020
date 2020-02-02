@@ -1,9 +1,8 @@
-import { element } from "protractor";
 import { todoListes, Data } from "./../models/Data";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { from, Observable, throwError } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -13,8 +12,9 @@ export class AuthService {
   objet: any = [{}];
   todoListes: todoListes;
   todoItem: todoListes;
-  data: Data[];
-  allData: Data;
+  data: Data;
+  allData: any;
+
   //todos: any;
   item: string;
   aze: string[];
@@ -26,6 +26,7 @@ export class AuthService {
     return this.http.get(url, httpOptions).pipe(
       map(data => {
         console.log(data);
+        this.allData = data;
         this.todoListes = data["todoListes"];
         console.log(this.todoListes);
       })
@@ -60,7 +61,10 @@ export class AuthService {
     // var newTodoText = newElements;
     // var thisListe = this.data.todoListes;
     // thisListe.push(newTodoText);
-    console.log(this.todoListes);
+
+    //objet a poster
+    this.allData["todoListes"] = this.todoListes;
+    console.log(this.allData);
   }
 }
 
