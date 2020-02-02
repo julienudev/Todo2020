@@ -37,4 +37,13 @@ export class ItemComponent implements OnInit {
 
     this.authService.addnewData(indexOfthisList, indexTask, inputTask);
   }
+
+  removeItem() {
+    var indexOfthisList = this.index;
+    console.log(indexOfthisList);
+
+    let indexTask = this.todoItem.elements.length - 1;
+    console.log(indexTask);
+    this.authService.removeItem(indexOfthisList, indexTask);
+  }
 }

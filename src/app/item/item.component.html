@@ -14,5 +14,6 @@
     <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
       {{ i }}{{ item }}
     </p>
+    <button type="text" (click)="removeItem()">remove</button>
   </div>
 </div>
