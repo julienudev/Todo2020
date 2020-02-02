@@ -9,10 +9,10 @@
     (keydown.enter)="addTask($event)"
     [(ngModel)]="inputTask"
   />
-  <div *ngFor="let item of todoItem.elements; let i = index">
+  <div *ngFor="let item of todoItem.elements; let i = index" >
     <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
-    <span class="todo-title" [ngClass]="{ 'todo-complete': isComplete }"
-      >{{ i }}{{ item }}</span
-    >
+    <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
+      {{ i }}{{ item }}
+    </p>
   </div>
 </div>

@@ -10,6 +10,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 export class ItemComponent implements OnInit {
   @Input()
   todoItem: todoListes;
+  @Input() index: number;
+
   inputTask: string;
   isComplete: boolean = false;
   indexOfthisList: number;
@@ -22,18 +24,17 @@ export class ItemComponent implements OnInit {
   addTask(event) {
     //const newElement = event.target.value;
     var inputTask = this.inputTask;
-
     console.log(inputTask);
 
-    var indexOfthisList = this.todoItem;
+    var indexOfthisList = this.index;
     console.log(indexOfthisList);
 
-    let indexTask = this.todoItem.elements.push(this.inputTask);
+    let indexTask = this.todoItem.elements.length - 1;
     console.log(indexTask);
 
-    //console.log(indexTask);
+    // let data = this.todoItem;
+    // console.log(data);
 
-    let data = this.todoItem;
-    this.authService.addnewData(data);
+    this.authService.addnewData(indexOfthisList, indexTask, inputTask);
   }
 }

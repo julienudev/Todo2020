@@ -8,8 +8,8 @@
     </div>
   </div>
   <ul>
-    <li *ngFor="let todo of todoListes; let indexOfthisList = index">
-      <app-item [todoItem]="todo"> </app-item>
+    <li *ngFor="let todo of todoListes; let i = index">
+      <app-item [todoItem]="todo" [index]="i"> </app-item>
     </li>
   </ul>
   <div class="row"></div>

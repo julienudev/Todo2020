@@ -1,6 +1,6 @@
 import { todoListes } from "./../models/data";
 import { AuthService } from "./../services/auth.service";
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 
 @Component({
   selector: "app-list",
@@ -8,6 +8,9 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
   styleUrls: ["./list.component.css"]
 })
 export class ListComponent implements OnInit {
+
+
+  
   todoListes: todoListes;
   test: todoListes;
   constructor(private authService: AuthService) {}

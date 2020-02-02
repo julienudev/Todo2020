@@ -13,7 +13,8 @@ export class AuthService {
   objet: any = [{}];
   todoListes: todoListes;
   todoItem: todoListes;
-  data: Data;
+  data: Data[];
+  allData: Data;
   //todos: any;
   item: string;
   aze: string[];
@@ -46,8 +47,8 @@ export class AuthService {
   //   this.item = "";
   // }
 
-  addnewData(data) {
-    this.objet.push(data);
+  addnewData(indexOfthisList, indextask, inpuTask) {
+    this.todoListes[indexOfthisList].elements.push(inpuTask);
     // this.getListService2();
     // //console.log();
     // console.log(newElements);
@@ -59,7 +60,7 @@ export class AuthService {
     // var newTodoText = newElements;
     // var thisListe = this.data.todoListes;
     // thisListe.push(newTodoText);
-    console.log(data);
+    console.log(this.todoListes);
   }
 }
 
