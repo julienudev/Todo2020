@@ -3,7 +3,7 @@ import { todoListes, Data } from "./../models/Data";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { from, Observable, throwError } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -12,8 +12,11 @@ export class AuthService {
   url: string = "http://92.222.69.104:80/todo/listes/";
   objet: any = [{}];
   todoListes: todoListes;
+  todoItem: todoListes;
+  data: Data;
   //todos: any;
-
+  item: string;
+  aze: string[];
   constructor(private http: HttpClient) {}
 
   getFromServer(httpOptions): Observable<any> {
@@ -31,4 +34,54 @@ export class AuthService {
   getListService2() {
     return this.todoListes;
   }
+
+  // addTask(e) {
+  //   const item = e.target.value;
+  //   if (!item) {
+  //     return;
+  //   } else console.log(item);
+
+  //   this.aze = this.todoListes.elements;
+  //   this.aze.push(item);
+  //   this.item = "";
+  // }
+
+  addnewData(data) {
+    this.objet.push(data);
+    // this.getListService2();
+    // //console.log();
+    // console.log(newElements);
+
+    // this.todoListes.push(newElements);
+    // //this.todoListes.elements.push(newElements);
+    // console.log(this.todoListes);
+
+    // var newTodoText = newElements;
+    // var thisListe = this.data.todoListes;
+    // thisListe.push(newTodoText);
+    console.log(data);
+  }
 }
+
+// getAllList(): Observable<Data> {
+//   // we expect all customers ICustomers[]
+//   return this.http.get<Data[]>(this.url).pipe(
+//     // will map customers into callback func and return actual customer that we want
+//     map(data => {
+//       console.log(data);
+
+//       // checks if there is an customer with same id as parsed above
+//       //let customer = customers.filter((cust: todoListes) => cust.id === id);
+//       // if customer has length = is not empty, then return first customer
+//       // otherwise return null because there is no existing customer with same id
+//       return data && data["todoListes"].length ? data["todoListes"] : null;
+//     }),
+
+//     catchError(this.handleError)
+//   );
+// }
+// handleError(
+//   handleError: any
+// ): import("rxjs").OperatorFunction<todoListes, any> {
+//   throw new Error("Method not implemented.");
+// }
