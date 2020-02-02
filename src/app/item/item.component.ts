@@ -1,3 +1,5 @@
+import { todoListes } from "./../models/data";
+import { AuthService } from "./../services/auth.service";
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
@@ -6,35 +8,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./item.component.css"]
 })
 export class ItemComponent implements OnInit {
-  @Input()
-  todoItem: any;
-  isComplete: boolean = false;
+   @Input()
+  todoItem: todoListes;
 
+  isComplete: boolean = false;
   @Output() remove: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
-
-  removeItem() {
-    this.remove.emit(this.todoItem);
-  }
-  completeItem() {
-    this.isComplete = !this.isComplete;
-  }
-
-  // deleteItem(i) {
-  //   this.todoDoc = this.afs.doc(`Todolist/${i}`);
-  //   this.todoDoc.delete();
-  //   this.openSnackBar("Item Deleted!", "Dismiss");
-  // }
-  // editItem(i) {
-  //   this.inputValue.content = i.content;
-  //   this.editValue = true;
-  //   this.inputId = i.id;
-  // }
-
-  // completeItem() {
-  //   this.isComplete = !this.isComplete;
-  // }
 }

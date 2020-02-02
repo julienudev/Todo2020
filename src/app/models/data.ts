@@ -1,22 +1,10 @@
-// export interface Data {
-//   utilisateur: string;
-//   password: string;
-//   todoListes: string[];
-
-// }
-
 export class Data {
   utilisateur: string;
   password: string;
-  todoListes: {
-    Liste: Liste[];
-  };
+  todoListes: string[];
 }
 
-export class Liste {
+export class todoListes {
   name: string;
-  TodoItems: string[];
-}
-export class TodoItems {
-  oneItem: string;
+  elements: string[];
 }

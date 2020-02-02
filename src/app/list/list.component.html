@@ -8,12 +8,8 @@
     </div>
   </div>
   <ul>
-    <li *ngFor="let todo of todoList">
-      <app-item [todoItem]="todo">
-        <button class="btn btn-remove" (click)="removeItem()">
-          remove
-        </button>
-      </app-item>
+    <li *ngFor="let todo of todoListes">
+      <app-item [todoItem]="todo"> </app-item>
     </li>
   </ul>
   <div class="row"></div>

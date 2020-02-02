@@ -1,9 +1,9 @@
+import { todoListes } from "./../models/data";
 import { Data } from "./../models/Data";
 import { AuthService } from "./../services/auth.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { TodoItems } from "../models/Data";
 
 @Component({
   selector: "app-login",
@@ -12,13 +12,8 @@ import { TodoItems } from "../models/Data";
 })
 export class LoginComponent implements OnInit {
   registerForm: FormGroup;
-  //objet: any;
-  //Data: any = [];
-  //TodoItem: TodoItems = null;
-  todoList = [{}];
+  todoListes: todoListes;
   isConnected = false;
-
-  //todoList: Data[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,21 +30,6 @@ export class LoginComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  // connect() {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       login: this.f.login.value,
-  //       password: this.f.password.value
-  //     })
-  //   };
-  //   this.authService.login(httpOptions);
-  // }
-
-  // getList() {
-  //   this.todoList = this.authService.getListService();
-  //   console.log(this.todoList);
-  // }
-
   connect2() {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -58,14 +38,8 @@ export class LoginComponent implements OnInit {
       })
     };
     this.authService.getFromServer(httpOptions).subscribe(data => {
-      this.todoList = data;
+      this.todoListes = data;
       this.isConnected = true;
-      console.log(this.todoList);
     });
   }
-
-  // getList() {
-  //   this.todoList = this.authService.getListService2();
-  //   console.log(this.todoList);
-  // }
 }
