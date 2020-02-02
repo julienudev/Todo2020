@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     this.authService.getFromServer(httpOptions).subscribe(data => {
       this.todoList = data;
       this.isConnected = true;
-      console.log(this.todoList);
+      //console.log(data);
     });
   }
 
