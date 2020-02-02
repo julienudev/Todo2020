@@ -1,17 +1,12 @@
-<div class="itemComp">
-<p>Item comp</p>
-<p>One liste</p>
+<p>One List works!</p>
+<div class="todo-item">
+  <input type="text" name="addTask" id="addTask" />
 
-  <!-- <input type="text" name="addTask" id="addTask" /> -->
-
-  <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
+  <input class="todo-checkbox" type="checkbox" (click)="completeItem()" />
   <h2 class="todo-title">{{ todoItem.name }}</h2>
-<input type="text" class="todo-input" placeholder="ajoute une tache" 
-[(ngModel)]="task" (keyup.enter)="addTodo()">
 
-
-   <div *ngFor="let item of todoItem.elements"> 
-    <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
+  <div *ngFor="let item of todoItem.elements">
+    <input class="todo-checkbox" type="checkbox" (click)="completeItem()" />
     <span class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">{{
       item
     }}</span>
@@ -21,21 +16,4 @@
       remove
     </button>
   </div>
-</div> 
-
-
-
-<!-- <div class="todo-item">
-  <div class="todo-item-left">
-    <input type="checkbox" [(ngModel)]="todo.completed" (change)="todoService.doneEdit(todo)">
-    <div *ngIf="!todo.editing; else editingTodo" class="todo-item-label" [ngClass]="{ 'completed' : todo.completed }"
-      (dblclick)="todoService.editTodo(todo)">{{ todo.title }}</div>
-    <ng-template #editingTodo>
-      <input type="text" class="todo-item-edit" [(ngModel)]="todo.title" (blur)="todoService.doneEdit(todo)" (keyup.enter)="todoService.doneEdit(todo)"
-        (keyup.esc)="todoService.cancelEdit(todo)" autofocus>
-    </ng-template>
-  </div>
-  <div class="remove-item" (click)="todoService.deleteTodo(todo.id)">
-    &times;
-  </div>
-</div> -->
+</div>

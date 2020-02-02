@@ -1,7 +1,3 @@
 .todo-complete {
   text-decoration: line-through;
 }
-.itemComp {
-  border-style: dotted;
-  border-color:red;
-}

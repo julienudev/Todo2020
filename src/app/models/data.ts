@@ -11,12 +11,6 @@ export class Data {
   todoListes: {
     Liste: Liste[];
   };
-
-  constructor(utilisateur: string, password: string, Liste: Liste[]) {
-    this.utilisateur = utilisateur;
-    this.password = password;
-    this.todoListes.Liste = Liste;
-  }
 }
 
 export class Liste {
@@ -24,5 +18,5 @@ export class Liste {
   TodoItems: string[];
 }
 export class TodoItems {
-  todoTitle: string;
+  oneItem: string;
 }
