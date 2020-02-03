@@ -11,7 +11,7 @@
   />
   <div *ngFor="let item of todoItem.elements; let i = index" >
     <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
-    <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }" contenteditable (input)="onNameChange($event.target.innerHTML)">
+    <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
       {{ i }}{{ item }}
     </p>
     <button type="text" (click)="removeItem()">remove</button>
