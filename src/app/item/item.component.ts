@@ -11,6 +11,7 @@ export class ItemComponent implements OnInit {
   @Input()
   todoItem: todoListes;
   @Input() index: number;
+  @Input() i: number;
 
   inputTask: string;
   isComplete: boolean = false;
@@ -29,7 +30,8 @@ export class ItemComponent implements OnInit {
     var indexOfthisList = this.index;
     console.log(indexOfthisList);
 
-    let indexTask = this.todoItem.elements.length - 1;
+    let indexTask = this.i;
+
     console.log(indexTask);
 
     // let data = this.todoItem;
@@ -41,9 +43,11 @@ export class ItemComponent implements OnInit {
   removeItem() {
     var indexOfthisList = this.index;
     console.log(indexOfthisList);
+    let indexTask = this.i;
 
-    let indexTask = this.todoItem.elements.length - 1;
     console.log(indexTask);
+    console.log();
+
     this.authService.removeItem(indexOfthisList, indexTask);
   }
 }
