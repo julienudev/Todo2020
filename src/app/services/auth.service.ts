@@ -49,9 +49,11 @@ export class AuthService {
   // }
 
   removeItem(indexOfthisList, indextask) {
-    this.todoListes[indexOfthisList].elements.splice(indextask);
-    this.allData["todoListes"] = this.todoListes;
-    console.log(this.allData);
+    let a = this.todoListes[indexOfthisList].elements.splice(indextask, 1);
+    console.log(a);
+
+    // this.allData["todoListes"] = this.todoListes;
+    // console.log(this.allData);
   }
   addnewData(indexOfthisList, indextask, inpuTask) {
     this.todoListes[indexOfthisList].elements.push(inpuTask);
