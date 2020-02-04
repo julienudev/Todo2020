@@ -1,8 +1,12 @@
 import { todoListes, Data } from "./../models/Data";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders
+} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -19,6 +23,17 @@ export class AuthService {
   item: string;
   aze: string[];
   constructor(private http: HttpClient) {}
+  postToServer() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+
+    let url: string = "http://92.222.69.104:80/todo/listes/";
+
+    return this.http.post(url, JSON.stringify(this.allData), httpOptions);
+  }
 
   getFromServer(httpOptions): Observable<any> {
     let url: string = "http://92.222.69.104:80/todo/listes/";
