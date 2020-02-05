@@ -10,11 +10,8 @@ import { map } from "rxjs/operators";
 export class AuthService {
   url: string = "http://92.222.69.104:80/todo/listes/";
   todoListes: todoListes;
-  // todoItem: todoListes;
-  // data: Data;
   allData: any;
 
-  // item: string;
   constructor(private http: HttpClient) {}
 
   postToServer(allData) {
@@ -48,23 +45,16 @@ export class AuthService {
     return this.todoListes;
   }
 
-  removeItem(indexOfthisList, indextask) {
-    let a = this.todoListes[indexOfthisList].elements.splice(indextask, 1);
+  removeItem(indexOfthisList, y) {
+    let a = this.todoListes[indexOfthisList].elements.splice(y, 1);
     console.log(a);
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);
+    this.postToServer(this.allData);
   }
   addnewData(indexOfthisList, inpuTask) {
     let a = this.todoListes[indexOfthisList].elements.push(inpuTask);
     console.log(a);
-    // this.todoListes.push(newElements);
-    // //this.todoListes.elements.push(newElements);
-    // console.log(this.todoListes);
-    // var newTodoText = newElements;
-    // var thisListe = this.data.todoListes;
-    // thisListe.push(newTodoText);
-
-    //objet a poster
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);
     this.postToServer(this.allData);

@@ -5,11 +5,11 @@
   <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
   <h2 class="todo-title">{{ todoItem.name }}{{ indexOfthisList }}</h2>
   <input type="text" (keydown.enter)="addTask()" [(ngModel)]="inputTask" />
-  <div *ngFor="let item of todoItem.elements; let i = index">
+  <div *ngFor="let item of todoItem.elements; let y = yndex">
     <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
     <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
-      {{ i }}{{ item }}
+      {{ y }}{{ item }}
     </p>
-    <button type="text" (click)="removeItem()">remove</button>
+    <button type="text" (click)="removeItem(y)">remove</button>
   </div>
 </div>
