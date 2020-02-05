@@ -45,8 +45,8 @@ export class AuthService {
     return this.todoListes;
   }
 
-  removeItem(indexOfthisList, y) {
-    let a = this.todoListes[indexOfthisList].elements.splice(y, 1);
+  removeItem(indexOfthisList,i) {
+    let a = this.todoListes[indexOfthisList].elements.splice(i, 1);
     console.log(a);
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);

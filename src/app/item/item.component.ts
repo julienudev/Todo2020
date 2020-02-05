@@ -1,6 +1,6 @@
 import { todoListes } from "./../models/data";
 import { AuthService } from "./../services/auth.service";
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-item",
@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
   todoItem: todoListes;
   @Input() indexOfListe: number;
   //@Input() i: number;
+  i: number;
 
   //y: number;
   inputTask: string;
@@ -29,15 +30,15 @@ export class ItemComponent implements OnInit {
     let indexOfthisList = this.indexOfListe;
     console.log(indexOfthisList);
     // console.log(this.index);
-    // this.authService.addnewData(this.index, inputTask);
+    this.authService.addnewData(indexOfthisList, inputTask);
   }
 
-  removeItem(y) {
+  removeItem(i) {
     var indexOfthisList = this.indexOfListe;
     console.log(indexOfthisList);
 
-    console.log(y);
+    console.log(i);
 
-    this.authService.removeItem(indexOfthisList, y);
+    this.authService.removeItem(indexOfthisList, i);
   }
 }
