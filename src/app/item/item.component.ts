@@ -12,6 +12,7 @@ export class ItemComponent implements OnInit {
   todoItem: todoListes;
   @Input() index: number;
   @Input() i: number;
+  @Input() yndex: number;
 
   inputTask: string;
   isComplete: boolean = false;
@@ -22,22 +23,19 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  addTask(event) {
+  addTask() {
     //const newElement = event.target.value;
-    var inputTask = this.inputTask;
+    let inputTask = this.inputTask;
     console.log(inputTask);
 
-    var indexOfthisList = this.index;
+    let indexOfthisList = this.index;
     console.log(indexOfthisList);
+    console.log(this.index);
 
-    let indexTask = this.i;
-
-    console.log(indexTask);
-
-    // let data = this.todoItem;
+    // let data = this.todoListes;
     // console.log(data);
 
-    this.authService.addnewData(indexOfthisList, indexTask, inputTask);
+    this.authService.addnewData(this.index, inputTask);
   }
 
   removeItem() {

@@ -1,12 +1,8 @@
 import { todoListes, Data } from "./../models/Data";
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders
-} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -19,20 +15,25 @@ export class AuthService {
   data: Data;
   allData: any;
 
-  //todos: any;
   item: string;
   aze: string[];
   constructor(private http: HttpClient) {}
-  postToServer() {
+
+  postToServer(allData) {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
     };
+    console.log(allData);
 
     let url: string = "http://92.222.69.104:80/todo/listes/";
 
-    return this.http.post(url, JSON.stringify(this.allData), httpOptions);
+    this.http
+      .post(url, allData, httpOptions)
+      .subscribe(data => console.log(data));
+
+    //console.log(this.getListService2());
   }
 
   getFromServer(httpOptions): Observable<any> {
@@ -52,36 +53,18 @@ export class AuthService {
     return this.todoListes;
   }
 
-  // addTask(e) {
-  //   const item = e.target.value;
-  //   if (!item) {
-  //     return;
-  //   } else console.log(item);
-
-  //   this.aze = this.todoListes.elements;
-  //   this.aze.push(item);
-  //   this.item = "";
-  // }
-
   removeItem(indexOfthisList, indextask) {
-    // this.todoListes[indexOfthisList].elements.splice(indextask);
-    // this.allData["todoListes"] = this.todoListes;
-    // console.log(this.allData);
     let a = this.todoListes[indexOfthisList].elements.splice(indextask, 1);
     console.log(a);
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);
   }
-  addnewData(indexOfthisList, indextask, inpuTask) {
-    this.todoListes[indexOfthisList].elements.push(inpuTask);
-    // this.getListService2();
-    // //console.log();
-    // console.log(newElements);
-
+  addnewData(indexOfthisList, inpuTask) {
+    let a = this.todoListes[indexOfthisList].elements.push(inpuTask);
+    console.log(a);
     // this.todoListes.push(newElements);
     // //this.todoListes.elements.push(newElements);
     // console.log(this.todoListes);
-
     // var newTodoText = newElements;
     // var thisListe = this.data.todoListes;
     // thisListe.push(newTodoText);
@@ -89,28 +72,6 @@ export class AuthService {
     //objet a poster
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);
+    this.postToServer(this.allData);
   }
 }
-
-// getAllList(): Observable<Data> {
-//   // we expect all customers ICustomers[]
-//   return this.http.get<Data[]>(this.url).pipe(
-//     // will map customers into callback func and return actual customer that we want
-//     map(data => {
-//       console.log(data);
-
-//       // checks if there is an customer with same id as parsed above
-//       //let customer = customers.filter((cust: todoListes) => cust.id === id);
-//       // if customer has length = is not empty, then return first customer
-//       // otherwise return null because there is no existing customer with same id
-//       return data && data["todoListes"].length ? data["todoListes"] : null;
-//     }),
-
-//     catchError(this.handleError)
-//   );
-// }
-// handleError(
-//   handleError: any
-// ): import("rxjs").OperatorFunction<todoListes, any> {
-//   throw new Error("Method not implemented.");
-// }

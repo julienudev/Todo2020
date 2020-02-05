@@ -4,11 +4,7 @@
 
   <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
   <h2 class="todo-title">{{ todoItem.name }}{{ indexOfthisList }}</h2>
-  <input
-    type="text"
-    (keydown.enter)="addTask($event)"
-    [(ngModel)]="inputTask"
-  />
+  <input type="text" (keydown.enter)="addTask()" [(ngModel)]="inputTask" />
   <div *ngFor="let item of todoItem.elements; let i = index">
     <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
     <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
