@@ -35,7 +35,7 @@ export class ItemComponent implements OnInit {
   removeItem(y) {
     var indexOfthisList = this.indexOfListe;
     console.log(indexOfthisList);
-    
+
     console.log(y);
 
     this.authService.removeItem(indexOfthisList, y);
