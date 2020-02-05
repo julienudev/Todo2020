@@ -8,17 +8,15 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./item.component.css"]
 })
 export class ItemComponent implements OnInit {
-  @Input()
-  todoItem: todoListes;
+  @Input() todoItem: todoListes;
   @Input() indexOfListe: number;
-  //@Input() i: number;
-  i: number;
-
-  //y: number;
+  //i: number;
   inputTask: string;
-  isComplete: boolean = false;
-  indexOfthisList: number;
+  inputChange: string;
+  //isComplete: boolean = false;
+  //indexOfthisList: number;
   //@Output() remove: EventEmitter<any> = new EventEmitter();
+
 
   constructor(private authService: AuthService) {}
 
@@ -26,20 +24,20 @@ export class ItemComponent implements OnInit {
 
   addTask() {
     let inputTask = this.inputTask;
-    console.log(this.inputTask);
     let indexOfthisList = this.indexOfListe;
-    console.log(indexOfthisList);
-    // console.log(this.index);
     this.authService.addnewData(indexOfthisList, inputTask);
     this.inputTask = "";
   }
 
+  // updateTask() {
+  //   let inputChange = this.inputChange;
+  //   let indexOfthisList = this.indexOfListe;
+  //   this.authService.addnewData(indexOfthisList, inputChange);
+  //   this.inputChange = "";
+  // }
+
   removeItem(i) {
     var indexOfthisList = this.indexOfListe;
-    console.log(indexOfthisList);
-
-    console.log(i);
-
     this.authService.removeItem(indexOfthisList, i);
   }
 }

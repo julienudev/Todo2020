@@ -1,17 +1,12 @@
 <p>One List works!</p>
 <div class="todo-item">
-  <!-- <input type="text" name="addTask" id="addTask" (click)="addTask()" /> -->
-
-  <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
-  <h2 contenteditable="true" class="todo-title">
-    {{ indexOfListe }}{{ todoItem.name }}
-  </h2>
+  <h2 class="todo-title">{{ indexOfListe }}{{ todoItem.name }}</h2>
   <input type="text" (keydown.enter)="addTask()" [(ngModel)]="inputTask" />
   <div *ngFor="let item of todoItem.elements; let i = index">
-    <!-- <input class="todo-checkbox" type="checkbox" (click)="completeItem()" /> -->
-    <p class="todo-title" [ngClass]="{ 'todo-complete': isComplete }">
-      {{ i }}{{ item }}
-    </p>
+    
+    <p>{{ i }} {{ item }}</p>
+
+    <!-- <p class="todo-title">{{ i }}{{ item }}</p> -->
     <button type="text" (click)="removeItem(i)">remove</button>
   </div>
 </div>

@@ -2,15 +2,12 @@
   <p>list works!</p>
   <div class="row">
     <div class="m-t-1">
-      <!-- <button type="button" class="btn btn-danger" (click)="getList()">
-        getList
-      </button> -->
+      <ul>
+        <li *ngFor="let todo of todoListes; let i = index">
+          <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
+        </li>
+      </ul>
+      <div class="row"></div>
     </div>
   </div>
-  <ul>
-    <li *ngFor="let todo of todoListes; let i = index">
-      <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
-    </li>
-  </ul>
-  <div class="row"></div>
 </div>
