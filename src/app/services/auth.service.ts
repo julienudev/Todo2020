@@ -9,14 +9,12 @@ import { map } from "rxjs/operators";
 })
 export class AuthService {
   url: string = "http://92.222.69.104:80/todo/listes/";
-  objet: any = [{}];
   todoListes: todoListes;
-  todoItem: todoListes;
-  data: Data;
+  // todoItem: todoListes;
+  // data: Data;
   allData: any;
 
-  item: string;
-  aze: string[];
+  // item: string;
   constructor(private http: HttpClient) {}
 
   postToServer(allData) {
@@ -28,12 +26,9 @@ export class AuthService {
     console.log(allData);
 
     let url: string = "http://92.222.69.104:80/todo/listes/";
-
     this.http
       .post(url, allData, httpOptions)
       .subscribe(data => console.log(data));
-
-    //console.log(this.getListService2());
   }
 
   getFromServer(httpOptions): Observable<any> {
