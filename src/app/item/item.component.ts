@@ -26,11 +26,12 @@ export class ItemComponent implements OnInit {
 
   addTask() {
     let inputTask = this.inputTask;
-    console.log(inputTask);
+    console.log(this.inputTask);
     let indexOfthisList = this.indexOfListe;
     console.log(indexOfthisList);
     // console.log(this.index);
     this.authService.addnewData(indexOfthisList, inputTask);
+    this.inputTask = "";
   }
 
   removeItem(i) {
