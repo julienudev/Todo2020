@@ -1,5 +1,4 @@
 import { todoListes } from "./../models/data";
-import { Data } from "./../models/Data";
 import { AuthService } from "./../services/auth.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";

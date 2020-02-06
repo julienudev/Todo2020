@@ -1,4 +1,4 @@
-import { todoListes, Data } from "./../models/Data";
+import { todoListes } from "./../models/Data";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
@@ -45,7 +45,7 @@ export class AuthService {
     return this.todoListes;
   }
 
-  removeItem(indexOfthisList,i) {
+  removeItem(indexOfthisList, i) {
     let a = this.todoListes[indexOfthisList].elements.splice(i, 1);
     console.log(a);
     this.allData["todoListes"] = this.todoListes;
