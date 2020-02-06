@@ -1,4 +1,4 @@
-import { todoListes } from "./../models/Data";
+import { todoListes } from "../models/data";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
