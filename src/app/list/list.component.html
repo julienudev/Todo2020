@@ -1,13 +1,33 @@
 <div>
   <p>list works!</p>
   <div class="row">
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id=""
+        aria-describedby="helpId"
+        placeholder=""
+        (keydown.enter)="addList()"
+        [(ngModel)]="inputList"
+        required
+      />
+      <small id="helpId" class="form-text text-muted">Add a new List</small>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="m-t-1">
-      <ul>
-        <li *ngFor="let todo of todoListes; let i = index">
+      <ul class="list-group">
+        <li
+          *ngFor="let todo of todoListes; let i = index"
+          class="list-group-item"
+        >
           <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
         </li>
       </ul>
-      <div class="row"></div>
     </div>
   </div>
 </div>

@@ -1,5 +1,51 @@
-<div class="container" *ngIf="!isConnected">
-  <form [formGroup]="registerForm" (ngSubmit)="connect2()">
+<!-- <div class="" *ngIf="!isConnected">
+  <!-- <section class="h-100">
+    <header class="container h-100">
+      <div class="d-flex align-items-center justify-content-center h-100">
+        <div class="d-flex flex-column">
+          <!-- <div class="card ">
+            <article class="card-body">
+              <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+              <h4 class="card-title mb-4 mt-1">Sign in</h4>
+              <form [formGroup]="registerForm" (ngSubmit)="connect2()">
+                <div class="form-group">
+                  <label>Your email</label>
+                  <input
+                    name=""
+                    class="form-control"
+                    placeholder="Email"
+                    type="email"
+                    formControlName="login"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Your password</label>
+                  <input
+                    class="form-control"
+                    placeholder="******"
+                    type="password"
+                    formControlName="password"
+                  />
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </article>
+          </div>
+
+
+
+        </div>
+        <div *ngIf="isConnected">
+          <app-list></app-list>
+        </div>
+
+        <!-- (click)="doGETWithHeaders()" -->
+
+        <!-- <form [formGroup]="registerForm" (ngSubmit)="connect2()">
     <div class="row">
       <label>
         Login :
@@ -13,12 +59,61 @@
       </label>
     </div>
     <button class="btn btn-sucess" type="submit">connect</button>
-  </form>
+  </form> 
+      </div>
+    </header>
+  </section>
 </div>
-<div *ngIf="isConnected">
-  <app-list></app-list>
-</div>
+ --> 
 
-<router-outlet></router-outlet>
 
-<!-- (click)="doGETWithHeaders()" -->
+<section class="h-100">
+  <header class="container h-100">
+    <div class="d-flex align-items-center justify-content-center h-100">
+      <div class="d-flex flex-column">
+        
+
+
+        <div class="card ">
+          <article class="card-body">
+            <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+            <h4 class="card-title mb-4 mt-1">Sign in</h4>
+            <form [formGroup]="registerForm" (ngSubmit)="connect2()">
+              <div class="form-group">
+                <label>Your email</label>
+                <input
+                  name=""
+                  class="form-control"
+                  placeholder="Email"
+                  type="email"
+                  formControlName="login"
+                />
+              </div>
+              <div class="form-group">
+                <label>Your password</label>
+                <input
+                  class="form-control"
+                  placeholder="******"
+                  type="password"
+                  formControlName="password"
+                />
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                  Login
+                </button>
+              </div>
+            </form>
+          </article>
+        </div>
+
+
+
+        <div *ngIf="isConnected">
+          <app-list></app-list>
+        </div>
+
+      </div>
+    </div>
+  </header>
+</section>

@@ -17,7 +17,6 @@ export class ItemComponent implements OnInit {
   //indexOfthisList: number;
   //@Output() remove: EventEmitter<any> = new EventEmitter();
 
-
   constructor(private authService: AuthService) {}
 
   ngOnInit() {}
@@ -39,5 +38,11 @@ export class ItemComponent implements OnInit {
   removeItem(i) {
     var indexOfthisList = this.indexOfListe;
     this.authService.removeItem(indexOfthisList, i);
+  }
+  removeList(indexOfListe) {
+    let indexOfthisList = indexOfListe;
+    console.log(indexOfthisList);
+
+    this.authService.removeList(indexOfthisList);
   }
 }

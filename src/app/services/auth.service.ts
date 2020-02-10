@@ -1,4 +1,5 @@
-import { todoListes } from "../models/todoListes";
+import { todoListes } from "./../models/data";
+//import { todoListes } from "../models/todoListes";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
@@ -54,6 +55,33 @@ export class AuthService {
   }
   addnewData(indexOfthisList, inpuTask) {
     let a = this.todoListes[indexOfthisList].elements.push(inpuTask);
+    console.log(a);
+    this.allData["todoListes"] = this.todoListes;
+    console.log(this.allData);
+    this.postToServer(this.allData);
+  }
+
+  addnewList(inputList) {
+    // let indexOfthisList = todoListes.length;
+    // let a = this.todoListes.push(inputList);
+    //console.log(a);
+    var obj = {
+      name: inputList,
+      elements: []
+    };
+    console.log(obj);
+    this.allData.todoListes.push(obj);
+
+    // let t = new todoListes();
+    // t.name = inputList;
+    // this.allData["todoListes"].push(t);
+
+    console.log(this.allData);
+    this.postToServer(this.allData);
+  }
+
+  removeList(indexOfthisList) {
+    let a = delete this.todoListes[indexOfthisList];
     console.log(a);
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);

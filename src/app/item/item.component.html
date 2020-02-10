@@ -1,9 +1,14 @@
 <p>One List works!</p>
 <div class="todo-item">
   <h2 class="todo-title">{{ indexOfListe }}{{ todoItem.name }}</h2>
-  <input type="text" (keydown.enter)="addTask()" [(ngModel)]="inputTask" />
+  <button type="text" (click)="removeList(indexOfListe)">remove list</button>
+  <input
+    type="text"
+    (keydown.enter)="addTask()"
+    [(ngModel)]="inputTask"
+    required
+  />
   <div *ngFor="let item of todoItem.elements; let i = index">
-    
     <p>{{ i }} {{ item }}</p>
 
     <!-- <p class="todo-title">{{ i }}{{ item }}</p> -->
