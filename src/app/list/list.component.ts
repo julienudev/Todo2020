@@ -22,13 +22,21 @@ export class ListComponent implements OnInit {
   }
 
   addList() {
-    let inputList = this.inputList;
-    console.log(inputList);
+    if (
+      this.inputList === undefined ||
+      this.inputList == null ||
+      this.inputList.length <= 0
+    ) {
+      return;
+    } else {
+      let inputList = this.inputList;
+      console.log(inputList);
 
-    // let indexOfthisList = todoListes.length;
-    // console.log(indexOfthisList);
+      // let indexOfthisList = todoListes.length;
+      // console.log(indexOfthisList);
 
-    this.authService.addnewList(inputList);
-    this.inputList = "";
+      this.authService.addnewList(inputList);
+      this.inputList = "";
+    }
   }
 }
