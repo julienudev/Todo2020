@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <p>list works!</p>
   <div class="row">
     <div class="form-group">
@@ -28,6 +28,63 @@
           <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
         </li>
       </ul>
+    </div>
+  </div>
+</div>
+
+
+ -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Add a new List"
+          (keydown.enter)="addList()"
+          [(ngModel)]="inputList"
+          required
+          aria-label="Add a new List"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+            (click)="addList()"
+          >
+            Button
+          </button>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for=""></label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder="Add a new List"
+          (keydown.enter)="addList()"
+          [(ngModel)]="inputList"
+          required
+        />
+        <small id="helpId" class="form-text text-muted"></small>
+      </div> -->
+    </div>
+    <!-- <app-tasks-add></app-tasks-add> -->
+    <div class="row">
+      <div
+        class="col-md-4 col- col-sm-6 col-12"
+        *ngFor="let todo of todoListes; let i = index"
+      >
+        <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
+
+        <!-- <app-tasks-list></app-tasks-list> -->
+      </div>
     </div>
   </div>
 </div>

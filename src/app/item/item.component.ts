@@ -19,13 +19,23 @@ export class ItemComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.inputTask === undefined;
+  }
 
   addTask() {
-    let inputTask = this.inputTask;
-    let indexOfthisList = this.indexOfListe;
-    this.authService.addnewData(indexOfthisList, inputTask);
-    this.inputTask = "";
+    if (
+      this.inputTask === undefined ||
+      this.inputTask == null ||
+      this.inputTask.length <= 0
+    ) {
+      return;
+    } else {
+      let inputTask = this.inputTask;
+      let indexOfthisList = this.indexOfListe;
+      this.authService.addnewData(indexOfthisList, inputTask);
+      this.inputTask = "";
+    }
   }
 
   // updateTask() {

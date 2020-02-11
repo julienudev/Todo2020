@@ -1,4 +1,4 @@
-<p>One List works!</p>
+<!-- <p>One List works!</p>
 <div class="todo-item">
   <h2 class="todo-title">{{ indexOfListe }}{{ todoItem.name }}</h2>
   <button type="text" (click)="removeList(indexOfListe)">remove list</button>
@@ -11,7 +11,99 @@
   <div *ngFor="let item of todoItem.elements; let i = index">
     <p>{{ i }} {{ item }}</p>
 
-    <!-- <p class="todo-title">{{ i }}{{ item }}</p> -->
+     <p class="todo-title">{{ i }}{{ item }}</p>
     <button type="text" (click)="removeItem(i)">remove</button>
+  </div>
+</div> -->
+
+<!-- <div class="todo-item">
+  <h2 class="todo-title">
+    {{ indexOfListe }}{{ todoItem.name }}
+    <button type="text" (click)="removeList(indexOfListe)">x</button>
+    <button
+      class="badge badge-danger badge-pill"
+      (click)="removeList(indexOfListe)"
+    >
+      X
+    </button>
+  </h2>
+  <input
+    type="text"
+    (keydown.enter)="addTask()"
+    [(ngModel)]="inputTask"
+    required
+    placeholder="Add a new task..."
+  />
+  <button (click)="addTask()" class="addBtn">Add</button>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let item of todoItem.elements; let i = index"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      {{ item }}
+      <button class="badge badge-primary badge-pill" (click)="removeItem(i)">
+        X
+      </button>
+    </li>
+  </ul>
+</div> -->
+<div class="card-deck pb-3 justify-content-center">
+  <div class="card " style="width: 18rem;">
+    <div class="card-header text-center">
+      {{ todoItem.name }}
+
+      <!-- <input
+        type="text"
+        (keydown.enter)="addTask()"
+        [(ngModel)]="inputTask"
+        required
+        placeholder="Add a new task..."
+      />
+      <button (click)="addTask()" class="addBtn">Add</button> -->
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="liOne">
+        <div class="input-group mb-3 align-items-center">
+          <input
+            type="text"
+            class="form-control "
+            placeholder="Add a new Task"
+            (keydown.enter)="addTask()"
+            [(ngModel)]="inputTask"
+            required
+            autofocus=""
+            aria-label="Add a Task"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+              (click)="addTask()"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <li
+        *ngFor="let item of todoItem.elements; let i = index"
+        class="list-group-item "
+      >
+        <div class="row">
+          <div class="col-10">
+            {{ item }}
+          </div>
+
+          <div class="col-2">
+            <button class="  badge badge-primary  " (click)="removeItem(i)">
+              X
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
