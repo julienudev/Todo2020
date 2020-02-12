@@ -1,67 +1,7 @@
-<!-- <p>One List works!</p>
-<div class="todo-item">
-  <h2 class="todo-title">{{ indexOfListe }}{{ todoItem.name }}</h2>
-  <button type="text" (click)="removeList(indexOfListe)">remove list</button>
-  <input
-    type="text"
-    (keydown.enter)="addTask()"
-    [(ngModel)]="inputTask"
-    required
-  />
-  <div *ngFor="let item of todoItem.elements; let i = index">
-    <p>{{ i }} {{ item }}</p>
-
-     <p class="todo-title">{{ i }}{{ item }}</p>
-    <button type="text" (click)="removeItem(i)">remove</button>
-  </div>
-</div> -->
-
-<!-- <div class="todo-item">
-  <h2 class="todo-title">
-    {{ indexOfListe }}{{ todoItem.name }}
-    <button type="text" (click)="removeList(indexOfListe)">x</button>
-    <button
-      class="badge badge-danger badge-pill"
-      (click)="removeList(indexOfListe)"
-    >
-      X
-    </button>
-  </h2>
-  <input
-    type="text"
-    (keydown.enter)="addTask()"
-    [(ngModel)]="inputTask"
-    required
-    placeholder="Add a new task..."
-  />
-  <button (click)="addTask()" class="addBtn">Add</button>
-
-  <ul class="list-group">
-    <li
-      *ngFor="let item of todoItem.elements; let i = index"
-      class="list-group-item d-flex justify-content-between align-items-center"
-    >
-      {{ item }}
-      <button class="badge badge-primary badge-pill" (click)="removeItem(i)">
-        X
-      </button>
-    </li>
-  </ul>
-</div> -->
 <div class="card-deck pb-3 justify-content-center">
   <div class="card " style="width: 18rem;">
-    <!-- <button class=" closeList btn btn-outline-danger">X</button> -->
     <div class="card-header text-center">
       {{ todoItem.name }}
-
-      <!-- <input
-        type="text"
-        (keydown.enter)="addTask()"
-        [(ngModel)]="inputTask"
-        required
-        placeholder="Add a new task..."
-      />
-      <button (click)="addTask()" class="addBtn">Add</button> -->
     </div>
     <ul class="list-group list-group-flush">
       <li class="liOne">
@@ -89,45 +29,38 @@
         </div>
       </li>
 
-      <li
+      <div
+        class="row"
         *ngFor="let item of todoItem.elements; let i = index"
         class="list-group-item "
+        [ngClass]="{ completed: item.isDone, editing: item.editing }"
       >
-        <div class="row">
-          <div class="col-10">
-            {{ item }}
-          </div>
-          <div class="col-10" *ngIf="editable">
+        <div class="col-10">
+          <li>
+            <div class="view" *ngIf="!editable">
+              <label (dblclick)="item.editing = true">{{ item }}</label>
+            </div>
             <input
+              *ngIf="editable"
               class="edit"
               #updatedTodo
               [value]="item"
-              (blur)="editItem(item, updatedTodo.value)"
               (keyup.escape)="item.editing = false"
-              (keyup.enter)="editItem(item, updatedTodo.value)"
+              (keyup.enter)="
+                updateTodo(item, updatedTodo.value, this.i, indexOfListe)
+              "
             />
-          </div>
-
-          <!-- <div class="col-10" *ngIf="editable">
-            <input
-              type="text"
-              (keydown.enter)="editItem(i, this.item)"
-              name=""
-              id=""
-            />
-            <label>{{ item }}</label>
-          </div> -->
-
-          <div class="col-2">
-            <button class="  badge badge-success  " (click)="editStatut()">
-              E
-            </button>
-            <button class="  badge badge-danger  " (click)="removeItem(i)">
-              X
-            </button>
-          </div>
+          </li>
         </div>
-      </li>
+        <div class="col-2">
+          <button class="  badge badge-success  " (click)="editStatut()">
+            E
+          </button>
+          <button class="  badge badge-danger  " (click)="removeItem(i)">
+            X
+          </button>
+        </div>
+      </div>
     </ul>
   </div>
 </div>

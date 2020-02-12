@@ -62,6 +62,18 @@ export class AuthService {
     console.log(this.allData);
     this.postToServer(this.allData);
   }
+
+  updateTodo(item, i, indexOfListe) {
+    console.log(item);
+    console.log(indexOfListe);
+    console.log(i);
+
+    this.todoListes[indexOfListe].elements[i] = item;
+    this.allData["todoListes"] = this.todoListes;
+
+    console.log(this.allData);
+    this.postToServer(this.allData);
+  }
   addnewData(indexOfthisList, inpuTask) {
     let a = this.todoListes[indexOfthisList].elements.push(inpuTask);
     console.log(a);
