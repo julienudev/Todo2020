@@ -54,8 +54,10 @@ export class AuthService {
     this.postToServer(this.allData);
   }
 
-  editItem(indexOfthisList, i, item) {
-    this.todoListes[indexOfthisList].elements[i] = item;
+  editItem(indexOfthisList, item) {
+    console.log(item);
+    console.log(indexOfthisList);
+
     this.allData["todoListes"] = this.todoListes;
     console.log(this.allData);
     this.postToServer(this.allData);

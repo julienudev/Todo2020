@@ -54,10 +54,11 @@ export class ItemComponent implements OnInit {
   editStatut() {
     this.editable = true;
   }
-  editItem(i, item) {
+  editItem(item, updatedTodo) {
     var indexOfthisList = this.indexOfListe;
+    console.log(updatedTodo.value);
 
-    this.authService.editItem(indexOfthisList, i, item);
+    this.authService.editItem(indexOfthisList, item);
     this.editable = false;
   }
 
