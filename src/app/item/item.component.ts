@@ -13,6 +13,7 @@ export class ItemComponent implements OnInit {
   //i: number;
   inputTask: string;
   inputChange: string;
+  editable: boolean;
   //isComplete: boolean = false;
   //indexOfthisList: number;
   //@Output() remove: EventEmitter<any> = new EventEmitter();
@@ -20,6 +21,7 @@ export class ItemComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.editable = false;
     this.inputTask === undefined;
   }
 
@@ -49,6 +51,16 @@ export class ItemComponent implements OnInit {
     var indexOfthisList = this.indexOfListe;
     this.authService.removeItem(indexOfthisList, i);
   }
+  editStatut() {
+    this.editable = true;
+  }
+  editItem(i, item) {
+    var indexOfthisList = this.indexOfListe;
+
+    this.authService.editItem(indexOfthisList, i, item);
+    this.editable = false;
+  }
+
   removeList(indexOfListe) {
     let indexOfthisList = indexOfListe;
     console.log(indexOfthisList);

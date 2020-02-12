@@ -97,9 +97,32 @@
           <div class="col-10">
             {{ item }}
           </div>
+          <div class="col-10" *ngIf="editable">
+            <input
+              class="edit"
+              #updatedTodo
+              [value]="item"
+              (blur)="editItem(item, updatedTodo.value)"
+              (keyup.escape)="item.editing = false"
+              (keyup.enter)="editItem(item, updatedTodo.value)"
+            />
+          </div>
+
+          <!-- <div class="col-10" *ngIf="editable">
+            <input
+              type="text"
+              (keydown.enter)="editItem(i, this.item)"
+              name=""
+              id=""
+            />
+            <label>{{ item }}</label>
+          </div> -->
 
           <div class="col-2">
-            <button class="  badge badge-primary  " (click)="removeItem(i)">
+            <button class="  badge badge-success  " (click)="editStatut()">
+              E
+            </button>
+            <button class="  badge badge-danger  " (click)="removeItem(i)">
               X
             </button>
           </div>
