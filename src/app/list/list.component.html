@@ -1,92 +1,37 @@
-<!-- <div>
-  <p>list works!</p>
-  <div class="row">
-    <div class="form-group">
-      <label for=""></label>
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3   ">
       <input
+        name="myfield"
         type="text"
         class="form-control"
-        name=""
-        id=""
-        aria-describedby="helpId"
-        placeholder=""
+        placeholder="Add a new List"
         (keydown.enter)="addList()"
         [(ngModel)]="inputList"
         required
+        aria-label="Add a new List"
       />
-      <small id="helpId" class="form-text text-muted">Add a new List</small>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="m-t-1">
-      <ul class="list-group">
-        <li
-          *ngFor="let todo of todoListes; let i = index"
-          class="list-group-item"
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+          (click)="addList()"
         >
-          <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
-        </li>
-      </ul>
+          ADD
+        </button>
+      </div>
     </div>
   </div>
 </div>
-
-
- -->
-
 <div class="row">
-  <div class="col-12">
-    <div class="row">
-      <div class="input-group mb-3">
-        <input
-          name="myfield"
-          type="text"
-          class="form-control"
-          placeholder="Add a new List"
-          (keydown.enter)="addList()"
-          [(ngModel)]="inputList"
-          required
-          aria-label="Add a new List"
-        />
+  <div
+    class="col-md-4 col-sm-6 col-12 "
+    *ngFor="let todo of todoListes; let i = index"
+  >
+    <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
 
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="button-addon2"
-            (click)="addList()"
-          >
-            ADD
-          </button>
-        </div>
-      </div>
-      <!-- <div class="form-group">
-        <label for=""></label>
-        <input
-          type="text"
-          class="form-control"
-          name=""
-          id=""
-          aria-describedby="helpId"
-          placeholder="Add a new List"
-          (keydown.enter)="addList()"
-          [(ngModel)]="inputList"
-          required
-        />
-        <small id="helpId" class="form-text text-muted"></small>
-      </div> -->
-    </div>
-    <!-- <app-tasks-add></app-tasks-add> -->
-    <div class="row">
-      <div
-        class="col-md-4 col- col-sm-6 col-12"
-        *ngFor="let todo of todoListes; let i = index"
-      >
-        <app-item [todoItem]="todo" [indexOfListe]="i"> </app-item>
-
-        <!-- <app-tasks-list></app-tasks-list> -->
-      </div>
-    </div>
+    <!-- <app-tasks-list></app-tasks-list> -->
   </div>
 </div>

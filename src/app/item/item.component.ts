@@ -73,6 +73,5 @@ export class ItemComponent implements OnInit {
     item = newValue;
     this.editable = false;
     this.authService.updateTodo(item, i, indexOfListe);
-    // item.editing = false;
   }
 }

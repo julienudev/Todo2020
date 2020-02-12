@@ -1,5 +1,5 @@
-<div class="card-deck pb-3 justify-content-center">
-  <div class="card " style="width: 18rem;">
+<div class="card-deck pb-3 ">
+  <div class="card  ">
     <div class="card-header text-center">
       {{ todoItem.name }}
     </div>
@@ -30,36 +30,40 @@
       </li>
 
       <div
-        class="row"
+        class="row d-inline-flex w-100 ml-2"
         *ngFor="let item of todoItem.elements; let i = index"
         class="list-group-item "
         [ngClass]="{ completed: item.isDone, editing: item.editing }"
       >
-        <div class="col-10">
-          <li>
-            <div class="view" *ngIf="!editable">
-              <label (dblclick)="item.editing = true">{{ item }}</label>
-            </div>
+        <li>
+          <div class="col-xs-10" *ngIf="!editable">
+            <!-- <div class="view" *ngIf="!editable"> -->
+            <label (dblclick)="editable = true">{{ item }}</label>
+            <!-- </div> -->
             <input
               *ngIf="editable"
               class="edit"
               #updatedTodo
               [value]="item"
-              (keyup.escape)="item.editing = false"
+              (keyup.escape)="editable = false"
               (keyup.enter)="
                 updateTodo(item, updatedTodo.value, this.i, indexOfListe)
               "
+              (focusout)="
+                updateTodo(item, updatedTodo.value, this.i, indexOfListe)
+              "
+              (blur)="updateTodo(item, updatedTodo.value, this.i, indexOfListe)"
             />
-          </li>
-        </div>
-        <div class="col-2">
-          <button class="  badge badge-success  " (click)="editStatut()">
-            E
-          </button>
-          <button class="  badge badge-danger  " (click)="removeItem(i)">
-            X
-          </button>
-        </div>
+          </div>
+          <div class="col-xs-2">
+            <button class="  badge badge-success  " (click)="editStatut()">
+              E
+            </button>
+            <button class="  badge badge-danger  " (click)="removeItem(i)">
+              X
+            </button>
+          </div>
+        </li>
       </div>
     </ul>
   </div>

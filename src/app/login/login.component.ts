@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   todoListes: todoListes;
   isConnected = false;
+  login: string;
+  password: string;
+  logForm: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,6 +23,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.logForm = true;
+
     this.registerForm = this.formBuilder.group({
       login: [""],
       password: [""]
@@ -37,6 +42,16 @@ export class LoginComponent implements OnInit {
       })
     };
     this.authService.getFromServer(httpOptions).subscribe(data => {
+      this.todoListes = data;
+      this.isConnected = true;
+    });
+  }
+
+  signIn() {
+    this.login = this.f.login.value;
+    this.password = this.f.password.value;
+
+    this.authService.signIn(this.login, this.password).subscribe(data => {
       this.todoListes = data;
       this.isConnected = true;
     });

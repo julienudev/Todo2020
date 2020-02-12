@@ -12,6 +12,8 @@ export class AuthService {
   url: string = "http://92.222.69.104:80/todo/listes/";
   todoListes: todoListes;
   allData: any;
+  login: string;
+  password: string;
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +35,20 @@ export class AuthService {
     let url: string = "http://92.222.69.104:80/todo/listes/";
 
     return this.http.get(url, httpOptions).pipe(
+      map(data => {
+        console.log(data);
+        this.allData = data;
+        this.todoListes = data["todoListes"];
+        console.log(this.todoListes);
+      })
+    );
+  }
+
+  signIn(login, password): Observable<any> {
+    let url: string =
+      "http://92.222.69.104:80/todo/create/" + login + "/" + password;
+
+    return this.http.get(url).pipe(
       map(data => {
         console.log(data);
         this.allData = data;
