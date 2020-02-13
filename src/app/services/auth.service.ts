@@ -118,10 +118,18 @@ export class AuthService {
   }
 
   removeList(indexOfthisList) {
-    let a = delete this.todoListes[indexOfthisList];
-    console.log(a);
-    this.allData["todoListes"] = this.todoListes;
+    // let a = this.allData.splice(indexOfthisList, 1);
+    let a = this.allData.todoListes.splice(indexOfthisList, 1);
+
     console.log(this.allData);
+    // this.allData["todoListes"] = this.todoListes;
+    // console.log(this.allData);
+    // this.postToServer(this.allData);
+
+    // let a = delete this.todoListes[indexOfthisList];
+    // console.log(a);
+    // this.allData["todoListes"] = this.todoListes;
+    // console.log(this.allData);
     this.postToServer(this.allData);
   }
 }

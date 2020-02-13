@@ -45,14 +45,10 @@
       required=""
       formControlName="password"
     />
-    <div class="checkbox mb-3">
-      <button
-        type="submit"
-        class="btn btn-outline-primary"
-        (click)="logForm = false"
-      >
-        creer un compte
-      </button>
+    <div class="checkbox mb-6">
+      <a class="badge badge-secondary " (click)="logForm = false">
+        create an account
+      </a>
       <!-- <label> <input type="checkbox" value="remember-me" /> Remember me </label> -->
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">

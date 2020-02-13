@@ -10,13 +10,9 @@ import { Component, OnInit, Input } from "@angular/core";
 export class ItemComponent implements OnInit {
   @Input() todoItem: todoListes;
   @Input() indexOfListe: number;
-  //i: number;
   inputTask: string;
   inputChange: string;
   editable: boolean;
-  //isComplete: boolean = false;
-  //indexOfthisList: number;
-  //@Output() remove: EventEmitter<any> = new EventEmitter();
 
   constructor(private authService: AuthService) {}
 
@@ -39,13 +35,6 @@ export class ItemComponent implements OnInit {
       this.inputTask = "";
     }
   }
-
-  // updateTask() {
-  //   let inputChange = this.inputChange;
-  //   let indexOfthisList = this.indexOfListe;
-  //   this.authService.addnewData(indexOfthisList, inputChange);
-  //   this.inputChange = "";
-  // }
 
   removeItem(i) {
     var indexOfthisList = this.indexOfListe;
