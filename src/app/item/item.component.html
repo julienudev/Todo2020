@@ -29,42 +29,46 @@
         </div>
       </li>
 
-      <div
+      <!-- <div
+        class="row d-inline-flex w-100 ml-2"
+        *ngFor="let item of todoItem.elements; let i = index"
+        class="list-group-item "
+        [ngClass]="{ completed: item.isDone, editing: item.editing }"
+      > -->
+      <li
         class="row d-inline-flex w-100 ml-2"
         *ngFor="let item of todoItem.elements; let i = index"
         class="list-group-item "
         [ngClass]="{ completed: item.isDone, editing: item.editing }"
       >
-        <li>
-          <div class="col-xs-10" *ngIf="!editable">
-            <!-- <div class="view" *ngIf="!editable"> -->
-            <label (dblclick)="editable = true">{{ item }}</label>
-            <!-- </div> -->
-            <input
-              *ngIf="editable"
-              class="edit"
-              #updatedTodo
-              [value]="item"
-              (keyup.escape)="editable = false"
-              (keyup.enter)="
-                updateTodo(item, updatedTodo.value, this.i, indexOfListe)
-              "
-              (focusout)="
-                updateTodo(item, updatedTodo.value, this.i, indexOfListe)
-              "
-              (blur)="updateTodo(item, updatedTodo.value, this.i, indexOfListe)"
-            />
-          </div>
-          <div class="col-xs-2">
-            <button class="  badge badge-success  " (click)="editStatut()">
-              E
-            </button>
-            <button class="  badge badge-danger  " (click)="removeItem(i)">
-              X
-            </button>
-          </div>
-        </li>
-      </div>
+        <div class="col-12" *ngIf="!editable">
+          <!-- <div class="view" *ngIf="!editable"> -->
+          <label (dblclick)="editable = true">{{ item }}</label>
+          <!-- </div> -->
+          <input
+            *ngIf="editable"
+            class="edit"
+            #updatedTodo
+            [value]="item"
+            (keyup.escape)="editable = false"
+            (keyup.enter)="
+              updateTodo(item, updatedTodo.value, this.i, indexOfListe)
+            "
+            (focusout)="
+              updateTodo(item, updatedTodo.value, this.i, indexOfListe)
+            "
+            (blur)="updateTodo(item, updatedTodo.value, this.i, indexOfListe)"
+          />
+          <button class="  badge badge-success  " (click)="editStatut()">
+            E
+          </button>
+          <button class="  badge badge-danger  " (click)="removeItem(i)">
+            X
+          </button>
+          <i class="fa-usb fa fa-align-right" aria-hidden="true"></i>
+        </div>
+      </li>
+      <!-- </div> -->
     </ul>
   </div>
 </div>
