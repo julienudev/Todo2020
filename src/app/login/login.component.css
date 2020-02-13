@@ -10,3 +10,7 @@ a.createAccount {
 a.createAccount:hover {
   color: skyblue;
 }
+
+input {
+  border-color: rgba(0, 0, 0, 0.712);
+}
