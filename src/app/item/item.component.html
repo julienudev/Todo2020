@@ -41,7 +41,6 @@
         </div>
       </li>
       <li
-        class="row"
         *ngFor="let item of todoItem.elements; let i = index"
         class="list-group-item "
         [ngClass]="{ completed: item.isDone, editing: item.editable }"
@@ -58,7 +57,7 @@
           "
         />
 
-        <span class="justify-content-end float-right">
+        <span class="justify-content-end ">
           <button class=" btn btn-outline-success  " (click)="editStatut()">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>

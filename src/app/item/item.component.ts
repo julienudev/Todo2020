@@ -43,13 +43,13 @@ export class ItemComponent implements OnInit {
   editStatut() {
     this.editable = true;
   }
-  editItem(item, updatedTodo) {
-    var indexOfthisList = this.indexOfListe;
-    console.log(updatedTodo.value);
+  // editItem(item, updatedTodo) {
+  //   var indexOfthisList = this.indexOfListe;
+  //   console.log(updatedTodo.value);
 
-    this.authService.editItem(indexOfthisList, item);
-    this.editable = false;
-  }
+  //   this.authService.editItem(indexOfthisList, item);
+  //   this.editable = false;
+  // }
 
   removeList(indexOfListe) {
     let indexOfthisList = indexOfListe;
