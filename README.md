@@ -1,6 +1,6 @@
 # Todo2020
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) Angular CLI: 9.0.1
 
 ## Development server
 
@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+     _                      _                 ____ _     ___ 
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | | 
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | | 
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
