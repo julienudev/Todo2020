@@ -4,3 +4,9 @@
   padding: 15px;
   margin: auto;
 }
+a.createAccount {
+  color: #ff7372;
+}
+a.createAccount:hover {
+  color: skyblue;
+}

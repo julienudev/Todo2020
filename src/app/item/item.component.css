@@ -4,8 +4,23 @@ li {
 ul {
   list-style-type: none;
 }
+label {
+  margin-top: 0.5rem;
+}
 
 .liOne {
-  margin-bottom: -15px;
-  padding: 5%;
+  /* margin-bottom: -15px; */
+  padding: 3%;
+}
+
+a {
+  color: skyblue;
+}
+a:hover {
+  color: skyblue;
+}
+
+.card {
+  padding: 0;
+  border: 1px solid skyblue;
 }
