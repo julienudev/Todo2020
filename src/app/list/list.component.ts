@@ -11,8 +11,7 @@ export class ListComponent implements OnInit {
   todoListes: todoListes;
   inputList: string;
   indexOfListe: number;
-  //todoItem:todoListes;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
   ngOnInit() {
     this.getList();
   }
@@ -20,7 +19,6 @@ export class ListComponent implements OnInit {
     this.todoListes = this.authService.getListService2();
     console.log(this.todoListes);
   }
-
   addList() {
     if (
       this.inputList === undefined ||
@@ -30,11 +28,6 @@ export class ListComponent implements OnInit {
       return;
     } else {
       let inputList = this.inputList;
-      console.log(inputList);
-
-      // let indexOfthisList = todoListes.length;
-      // console.log(indexOfthisList);
-
       this.authService.addnewList(inputList);
       this.inputList = "";
     }

@@ -14,13 +14,12 @@ export class ItemComponent implements OnInit {
   inputChange: string;
   editable: boolean;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.editable = false;
     this.inputTask === undefined;
   }
-
   addTask() {
     if (
       this.inputTask === undefined ||
@@ -35,7 +34,6 @@ export class ItemComponent implements OnInit {
       this.inputTask = "";
     }
   }
-
   removeItem(i) {
     var indexOfthisList = this.indexOfListe;
     this.authService.removeItem(indexOfthisList, i);
@@ -43,21 +41,10 @@ export class ItemComponent implements OnInit {
   editStatut() {
     this.editable = true;
   }
-  editItem(item, updatedTodo) {
-    var indexOfthisList = this.indexOfListe;
-    console.log(updatedTodo.value);
-
-    this.authService.editItem(indexOfthisList, item);
-    this.editable = false;
-  }
-
   removeList(indexOfListe) {
     let indexOfthisList = indexOfListe;
-    console.log(indexOfthisList);
-
     this.authService.removeList(indexOfthisList);
   }
-
   updateTodo(item, newValue, i, indexOfListe) {
     item = newValue;
     this.editable = false;

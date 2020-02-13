@@ -1,72 +1,37 @@
 <div class="card-deck pb-3 ">
   <div class="card  ">
-    <div class="card-header text-center">
+    <div class="card-header   text-center">
       {{ todoItem.name }}
       <span class="justify-content-end float-right">
-        <!-- <button class=" btn btn-outline-success  " (click)="editStatut()">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </button> -->
-        <button
-          class="btn btn-outline-danger"
-          aria-label="Delete"
-          (click)="removeList(indexOfListe)"
-        >
+        <button class="btn  btn-sm btn-outline-danger" aria-label="Delete" (click)="removeList(indexOfListe)">
           <i class="fa fa-trash-o" aria-hidden="true"></i>
         </button>
       </span>
     </div>
     <ul class="list-group list-group-flush">
       <li class="liOne">
-        <div class="input-group mb-3 align-items-center">
-          <input
-            type="text"
-            class="form-control "
-            placeholder="Add a new Task"
-            (keydown.enter)="addTask()"
-            [(ngModel)]="inputTask"
-            required
-            autofocus=""
-            aria-label="Add a Task"
-          />
+        <div class="input-group  align-items-center">
+          <input type="text" class="form-control " placeholder="Add a new Task" (keydown.enter)="addTask()"
+            [(ngModel)]="inputTask" required autofocus="" aria-label="Add a Task" />
           <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-              (click)="addTask()"
-            >
+            <button class="btn   btn-outline-secondary" type="button " id="button-addon2" (click)="addTask()">
               +
             </button>
           </div>
         </div>
       </li>
-      <li
-        class="row"
-        *ngFor="let item of todoItem.elements; let i = index"
-        class="list-group-item "
-        [ngClass]="{ completed: item.isDone, editing: item.editable }"
-      >
-        <label *ngIf="!editable" (dblclick)="editable = true">{{ item }}</label>
-        <input
-          *ngIf="editable"
-          class="edit"
-          #updatedTodo
-          [value]="item"
-          (keyup.escape)="item.editable = false"
+      <li *ngFor="let item of todoItem.elements; let i = index" class="list-group-item p-2 "
+        [ngClass]="{ completed: item.isDone, editing: item.editable }">
+        <label class="align-item-center" *ngIf="!editable" (dblclick)="editable = true">{{ item }}</label>
+        <input *ngIf="editable" class="edit" #updatedTodo [value]="item" (keyup.escape)="item.editable = false"
           (keyup.enter)="
             updateTodo(item, updatedTodo.value, this.i, indexOfListe)
-          "
-        />
-
-        <span class="justify-content-end float-right">
-          <button class=" btn btn-outline-success  " (click)="editStatut()">
+          " />
+        <span class="justify-content-end float-right ">
+          <button class=" btn btn-sm btn-outline-info m-2  " (click)="editStatut()">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>
-          <button
-            class="btn btn-outline-danger"
-            aria-label="Delete"
-            (click)="removeItem(i)"
-          >
+          <button class="btn btn-sm btn-outline-danger" aria-label="Delete" (click)="removeItem(i)">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </button>
         </span>
