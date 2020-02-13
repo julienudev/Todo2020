@@ -29,12 +29,6 @@
         </div>
       </li>
 
-      <!-- <div
-        class="row d-inline-flex w-100 ml-2"
-        *ngFor="let item of todoItem.elements; let i = index"
-        class="list-group-item "
-        [ngClass]="{ completed: item.isDone, editing: item.editing }"
-      > -->
       <li
         class="row d-inline-flex w-100 ml-2"
         *ngFor="let item of todoItem.elements; let i = index"
@@ -60,13 +54,16 @@
             (blur)="updateTodo(item, updatedTodo.value, this.i, indexOfListe)"
           />
           <span class="justify-content-end float-right">
-            <button class="  badge badge-success  " (click)="editStatut()">
-              E
+            <button class=" btn btn-outline-sucess  " (click)="editStatut()">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
-            <button class="  badge badge-danger  " (click)="removeItem(i)">
-              X
+            <button
+              class="btn btn-outline-danger"
+              aria-label="Delete"
+              (click)="removeItem(i)"
+            >
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
-            <i class="fa- fa fa-align-right" aria-hidden="true"></i>
           </span>
         </div>
       </li>
