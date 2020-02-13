@@ -1,19 +1,6 @@
 <div class="container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <label>
-        Login :
-        <input type="text" formControlName="login" />
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        Password :
-        <input type="password" formControlName="password" />
-      </label>
-    </div>
-    <button class="btn btn-sucess" type="submit">connect</button>
-  </form>
+  <!-- <button>Sign</button>
+  <button>Log</button> -->
+  <app-login></app-login>
+  <!-- <app-list></app-list> -->
 </div>
-
-<router-outlet></router-outlet>

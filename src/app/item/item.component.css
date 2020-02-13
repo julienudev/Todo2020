@@ -1,0 +1,11 @@
+li {
+  list-style-type: none;
+}
+ul {
+  list-style-type: none;
+}
+
+.liOne {
+  margin-bottom: -15px;
+  padding: 4%;
+}
