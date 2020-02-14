@@ -22,10 +22,8 @@ export class AuthService {
 
     return this.http.get(url).pipe(
       map(data => {
-        console.log(data);
         this.allData = data;
         this.todoListes = data["todoListes"];
-        console.log(this.todoListes);
       })
     );
   }
@@ -64,12 +62,6 @@ export class AuthService {
     this.postToServer(this.allData);
   }
 
-  // editItem(indexOfthisList, item) {
-  //    this.allData["todoListes"] = this.todoListes;
-  //   console.log(this.allData);
-  //   this.postToServer(this.allData);
-  // }
-
   updateTodo(item, i, indexOfListe) {
     this.todoListes[indexOfListe].elements[i] = item;
     this.allData["todoListes"] = this.todoListes;
@@ -86,7 +78,6 @@ export class AuthService {
       name: inputList,
       elements: []
     };
-    console.log(obj);
     this.allData.todoListes.push(obj);
     this.postToServer(this.allData);
   }

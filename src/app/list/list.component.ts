@@ -17,7 +17,6 @@ export class ListComponent implements OnInit {
   }
   getList() {
     this.todoListes = this.authService.getListService2();
-    console.log(this.todoListes);
   }
   addList() {
     if (
