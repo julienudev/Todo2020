@@ -1,5 +1,6 @@
 <div *ngIf="!isConnected">
   <h1 class="text-center mt-5 mb-5 font-weight-normal">TODOLIST</h1>
+
   <form *ngIf="logForm" class="form-signin" [formGroup]="registerForm" (ngSubmit)="connect2()">
     <h4 class="h3 mb-3 font-weight-normal">Hello</h4>
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -19,6 +20,11 @@
     </div>
   </form>
 </div>
+<!-- <blockquote><cite>
+    On ne fait jamais attention à ce qui a été fait ; on ne voit que ce qui reste à faire.Marie
+    Curie
+  </cite></blockquote> -->
+
 
 <div *ngIf="!isConnected">
   <form *ngIf="!logForm" class="form-signin" [formGroup]="registerForm" (ngSubmit)="signIn()">
@@ -38,9 +44,10 @@
       </a>
     </div>
   </form>
+
 </div>
 
 <div *ngIf="isConnected">
   <app-list></app-list>
 </div>
-<p *ngIf="!isConnected" class="mt-5 fixed-bottom  text-center"> 2020 ng-juju</p>
+<!-- <p *ngIf="!isConnected" class="mt-5 fixed-bottom  text-center"> 2020 ng-juju</p> -->

@@ -1,6 +1,6 @@
 import { todoListes } from "./../models/data";
 import { AuthService } from "./../services/auth.service";
-import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-list",
