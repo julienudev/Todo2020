@@ -32,11 +32,14 @@ export class ItemComponent implements OnInit {
       let indexOfthisList = this.indexOfListe;
       this.authService.addnewData(indexOfthisList, inputTask);
       this.inputTask = "";
+      this.editable = false;
     }
   }
   removeItem(i) {
     var indexOfthisList = this.indexOfListe;
     this.authService.removeItem(indexOfthisList, i);
+    this.editable = false;
+
   }
   editStatut() {
     this.editable = true;
@@ -44,10 +47,13 @@ export class ItemComponent implements OnInit {
   removeList(indexOfListe) {
     let indexOfthisList = indexOfListe;
     this.authService.removeList(indexOfthisList);
+    this.editable = false;
+
   }
   updateTodo(item, newValue, i, indexOfListe) {
     item = newValue;
     this.editable = false;
     this.authService.updateTodo(item, i, indexOfListe);
+
   }
 }

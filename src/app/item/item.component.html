@@ -20,19 +20,19 @@
           </div>
         </div>
       </li>
-      <li *ngFor="let item of todoItem.elements; let i = index" class="list-group-item p-2 "
-        [ngClass]="{ completed: item.isDone, editing: item.editable }">
+      <li *ngFor="let item of todoItem.elements; let i = index" class="list-group-item p-2 ">
         <label class="align-item-center" *ngIf="!editable" (dblclick)="editable = true">{{ item }}</label>
-        <input *ngIf="editable" class="edit" #updatedTodo [value]="item" (keyup.escape)="item.editable = false"
+        <input *ngIf="editable" class="edit" #updatedTodo [value]="item" (keyup.escape)="editable = false"
           (keyup.enter)="
             updateTodo(item, updatedTodo.value, this.i, indexOfListe)
-          " />
+          " (focusout)="!editable
+        " (blur)="!editable" (keyup.escape)="!editable" />
         <span class="justify-content-end float-right ">
           <button class=" btn btn-sm btn-outline-info m-2  " (click)="editStatut()">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <i class="fa fa-pencil  " aria-hidden="true"></i>
           </button>
           <button class="btn btn-sm btn-outline-danger btnres" aria-label="Delete" (click)="removeItem(i)">
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="fa fa-trash-o " aria-hidden="true"></i>
           </button>
         </span>
       </li>

@@ -12,7 +12,7 @@ import { HttpHeaders } from "@angular/common/http";
 export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   todoListes: todoListes;
-  isConnected = false;
+  isConnected :boolean = false;
   login: string;
   password: string;
   logForm: boolean = true;
